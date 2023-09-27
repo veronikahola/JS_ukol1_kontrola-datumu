@@ -96,7 +96,6 @@ const jeValidniDatum = (datum) => {
           } else {
             return 31;
           }
-   
     }
 
 
@@ -110,24 +109,12 @@ const jeValidniDatum = (datum) => {
         return false;
     }
 
-    if ((pocetDniMesice(mesic, rok) === 31) && !(den >= 1 && den <= 31)) {
-        console.log('špatně zadaný den. Zadaný měsíc má pouze 31 dní!')
-        return false;
-    
-    } else if ((pocetDniMesice(mesic, rok) === 30) && !(den >= 1 && den <= 30)) {
-        console.log('špatně zadaný den. Zadaný měsíc má pouze 30 dní!')
-        return false;
-
-    } else if ((pocetDniMesice(mesic, rok) === 29) && !(den >= 1 && den <= 29)) {
-        console.log('špatně zadaný den. Zadaný měsíc má pouze 29 dní!')
-        return false;
-
-    } else if ((pocetDniMesice(mesic, rok) === 28) && !(den >= 1 && den <= 28)) {
-        console.log('špatně zadaný den. Zadaný měsíc má pouze 28 dní!')
+    if (!(den >= 1 && den <= pocetDniMesice(mesic, rok))) {
+        console.log(`špatně zadaný den. Zadaný měsíc má pouze ${pocetDniMesice(mesic, rok)} dní!`)
         return false;
     }
 
     return true;
 }
 
-console.log(jeValidniDatum('21.09.2123'));
+console.log(jeValidniDatum('29.02.2023'));
